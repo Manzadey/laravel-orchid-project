@@ -34,7 +34,7 @@ class PlatformProvider extends OrchidServiceProvider
             ],
         ]);
 
-        $dashboard->registerResource('stylesheets', vite('resources/assets/platform/platform.css'));
+        $dashboard->registerResource('stylesheets', vite('resources/assets/platform/platform.main.css'));
 
         $this->registerMacros();
     }
