@@ -48,7 +48,7 @@ return [
     */
 
     'middleware' => [
-        'public'  => ['web'],
+        'public' => ['web'],
         'private' => ['web', 'platform', \App\Http\Middleware\HttpLogMiddleware::class],
     ],
 
@@ -110,7 +110,7 @@ return [
 
     'resource' => [
         'stylesheets' => [],
-        'scripts'     => [],
+        'scripts' => [],
     ],
 
     /*
@@ -142,7 +142,7 @@ return [
     */
 
     'attachment' => [
-        'disk'      => 'public',
+        'disk' => 'public',
         'generator' => \Orchid\Attachment\Engines\Generator::class,
     ],
 
@@ -158,7 +158,7 @@ return [
 
     'icons' => [
         'orc' => \Orchid\IconPack\Path::getFolder(),
-        'cs'  => resource_path('platform/icons'),
+        'cs' => resource_path('platform/icons'),
     ],
 
     /*
@@ -176,7 +176,7 @@ return [
     */
 
     'notifications' => [
-        'enabled'  => false,
+        'enabled' => false,
         'interval' => 60,
     ],
 
