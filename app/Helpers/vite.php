@@ -17,7 +17,7 @@ if(!function_exists('vite')) {
             }
 
             return null;
-        } catch (JsonException) {
+        } catch (Exception) {
             return null;
         }
     }
