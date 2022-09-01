@@ -20,6 +20,10 @@ if(!function_exists('attrName')) {
             return $key;
         }
 
-        return $attribute->toString();
+        if($attribute instanceof \Illuminate\Support\Stringable) {
+            return $attribute->toString();
+        }
+
+        return $attribute;
     }
 }
