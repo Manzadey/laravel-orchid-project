@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Orchid\Screens\User;
 
 use App\Models\User;
@@ -80,7 +82,6 @@ class UserShowScreen extends ModelScreen
                 Sight::make('email'),
                 Sight::make('name'),
                 TimestampSight::make('email_verified_at'),
-                TimestampSight::make('sent_email_verify_at'),
                 CreatedAtSight::make(),
                 UpdatedAtSight::make(),
             ]),
