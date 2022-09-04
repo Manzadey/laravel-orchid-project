@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Str;
+
 if(!function_exists('attrName')) {
     function attrName(string $key, string $postfix = null) : ?string
     {
