@@ -205,8 +205,8 @@ return [
             'email_verified_at' => 'Дата подтверждения',
             'created_at'        => 'Дата создания',
             'updated_at'        => 'Дата обновления',
-            'slug'                  => 'ЧПУ',
-            'permissions'                  => 'Права доступа',
+            'slug'              => 'ЧПУ',
+            'permissions'       => 'Права доступа',
         ],
     ],
 ];
