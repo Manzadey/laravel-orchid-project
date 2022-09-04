@@ -15,10 +15,15 @@ use App\Orchid\Helpers\TD\ActionsTD;
 use App\Orchid\Helpers\TD\CreatedAtTD;
 use App\Orchid\Helpers\TD\EntityRelationTD;
 use App\Orchid\Helpers\TD\IdTD;
+use App\Orchid\Layouts\HttpLogChart;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Illuminate\Support\Facades\DB;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Layouts\Selection;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
+use stdClass;
 
 class HttpLogListScreen extends AbstractListScreen
 {
@@ -38,6 +43,10 @@ class HttpLogListScreen extends AbstractListScreen
                 ->latest('id')
                 ->with('user')
                 ->paginate(),
+
+            'charts' => [
+                $this->generateChartData(),
+            ],
         ];
     }
 
@@ -50,6 +59,8 @@ class HttpLogListScreen extends AbstractListScreen
     {
         return [
             $this->selection(),
+
+            HttpLogChart::class,
 
             ModelsTableLayout::make([
                 IdTD::make(),
@@ -76,5 +87,33 @@ class HttpLogListScreen extends AbstractListScreen
             UserFilter::class,
             CreatedTimestampFilter::class,
         ]);
+    }
+
+    /**
+     * @return array[]
+     */
+    public function generateChartData() : array
+    {
+        $results = DB::table('http_logs')
+            ->selectRaw('COUNT(*) as count, DATE_FORMAT(created_at, "%d.%m.%Y") as date')
+            ->groupBy('date')
+            ->get();
+
+        $values = $labels = [];
+        array_map(static function(Carbon $carbon) use ($results, &$labels, &$values) : void {
+            $date  = $carbon->format('d.m.Y');
+            $value = 0;
+
+            $labels[] = $date;
+            $key      = $results->search(static fn(stdClass $value) => $value->date === $date);
+
+            if($key !== false) {
+                $value = $results->get($key)->count;
+            }
+
+            $values[] = $value;
+        }, CarbonPeriod::create(now()->subDays(14), now())->toArray());
+
+        return compact('labels', 'values');
     }
 }
