@@ -57,7 +57,7 @@ class HttpLogListScreen extends AbstractListScreen
                 TD::make('method', __('Метод'))
                     ->filter(TD::FILTER_SELECT)
                     ->filterOptions([
-                        'GET' => 'GET',
+                        'GET'  => 'GET',
                         'POST' => 'POST',
                     ]),
                 TD::make('path', __('Путь')),
