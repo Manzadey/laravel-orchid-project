@@ -24,7 +24,7 @@ class UserFilter extends Filter
      */
     public function name() : string
     {
-        return attrName('user');
+        return __('Пользователь');
     }
 
     /**
@@ -63,6 +63,7 @@ class UserFilter extends Filter
             Relation::make('user')
                 ->fromModel(User::class, 'email')
                 ->searchColumns('name', 'email')
+                ->title(attrName('email'))
                 ->value($this->request->input('user')),
         ];
     }
