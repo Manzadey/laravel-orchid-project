@@ -8,23 +8,22 @@ use App\Models\ActivityLog;
 use App\Orchid\Filters\CreatedTimestampFilter;
 use App\Orchid\Filters\IdFilter;
 use App\Orchid\Filters\UserFilter;
-use App\Orchid\Helpers\Layouts\ModelsTableLayout;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\ShowLink;
-use App\Orchid\Helpers\Screen\AbstractListScreen;
-use App\Orchid\Helpers\TD\ActionsTD;
-use App\Orchid\Helpers\TD\CreatedAtTD;
-use App\Orchid\Helpers\TD\EntityRelationTD;
-use App\Orchid\Helpers\TD\IdTD;
-use App\Orchid\Layouts\ActivityLogSelection;
 use App\View\Components\Platform\ActivityLog\ActivityLogEventComponent;
 use Illuminate\Database\Eloquent\Builder;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\EntityRelationTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Layouts\Selection;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 
-abstract class AbstractActivityLogListScreen extends AbstractListScreen
+abstract class AbstractActivityLogListScreen extends AbstractScreen
 {
     protected array $hiddenColumns = [];
 

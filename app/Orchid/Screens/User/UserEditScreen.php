@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\User;
 
 use App\Models\User;
-use App\Orchid\Helpers\Screen\EditScreen;
 use App\Orchid\Layouts\Role\RolePermissionLayout;
 use App\Orchid\Layouts\User\UserEditLayout;
 use App\Orchid\Layouts\User\UserPasswordLayout;
@@ -15,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use JetBrains\PhpStorm\ArrayShape;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\EditScreen;
 use Orchid\Access\UserSwitch;
 use Orchid\Screen\Actions\Button;
 use Orchid\Support\Color;

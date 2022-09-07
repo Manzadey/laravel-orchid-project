@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Role;
 
 use App\Models\Role;
-use App\Orchid\Helpers\Alerts\SaveAlert;
-use App\Orchid\Helpers\Screen\EditScreen;
 use App\Orchid\Layouts\Role\RoleEditLayout;
 use App\Orchid\Layouts\Role\RolePermissionLayout;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Alerts\SaveAlert;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\EditScreen;
 use Orchid\Support\Facades\Layout;
 
 class RoleEditScreen extends EditScreen

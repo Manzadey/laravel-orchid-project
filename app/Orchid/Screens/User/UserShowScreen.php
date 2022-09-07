@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\User;
 
 use App\Models\User;
-use App\Orchid\Helpers\Layouts\ModelLegendLayout;
-use App\Orchid\Helpers\Layouts\ModelMetricLayout;
-use App\Orchid\Helpers\Link\DeleteLink;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\EditLink;
-use App\Orchid\Helpers\Screen\ModelScreen;
-use App\Orchid\Helpers\Sight\CreatedAtSight;
-use App\Orchid\Helpers\Sight\IdSight;
-use App\Orchid\Helpers\Sight\TimestampSight;
-use App\Orchid\Helpers\Sight\UpdatedAtSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelLegendLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelMetricLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DeleteLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\EditLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\ModelScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\CreatedAtSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\IdSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\TimestampSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\UpdatedAtSight;
 use Orchid\Screen\Sight;
 
 /**

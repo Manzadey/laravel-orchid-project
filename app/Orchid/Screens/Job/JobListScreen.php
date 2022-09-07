@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Job;
 
 use App\Models\Job;
-use App\Orchid\Helpers\Layouts\ModelsTableLayout;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\ShowLink;
-use App\Orchid\Helpers\Screen\AbstractListScreen;
-use App\Orchid\Helpers\TD\ActionsTD;
-use App\Orchid\Helpers\TD\CreatedAtTD;
-use App\Orchid\Helpers\TD\IdTD;
-use App\Orchid\Helpers\TD\TimestampTD;
 use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\ArrayShape;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\TimestampTD;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 
-class JobListScreen extends AbstractListScreen
+class JobListScreen extends AbstractScreen
 {
     /**
      * @throws \Illuminate\Auth\Access\AuthorizationException

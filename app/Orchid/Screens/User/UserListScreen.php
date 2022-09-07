@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\User;
 
 use App\Models\User;
-use App\Orchid\Helpers\Link\CreateLink;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use JetBrains\PhpStorm\ArrayShape;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\CreateLink;
 
 class UserListScreen extends AbstractUserListScreen
 {

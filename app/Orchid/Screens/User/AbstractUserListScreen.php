@@ -5,21 +5,22 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\User;
 
 use App\Models\User;
-use App\Orchid\Helpers\Layouts\ModelsTableLayout;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\EditLink;
-use App\Orchid\Helpers\Link\ShowLink;
-use App\Orchid\Helpers\Screen\AbstractListScreen;
-use App\Orchid\Helpers\TD\ActionsTD;
-use App\Orchid\Helpers\TD\CreatedAtTD;
-use App\Orchid\Helpers\TD\IdTD;
-use App\Orchid\Helpers\TD\UpdateAtTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\EditLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractListScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\UpdateAtTD;
 use App\Orchid\Layouts\User\UserFiltersLayout;
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\TD;
 
-abstract class AbstractUserListScreen extends AbstractListScreen
+abstract class AbstractUserListScreen extends AbstractScreen
 {
     /**
      * Views.

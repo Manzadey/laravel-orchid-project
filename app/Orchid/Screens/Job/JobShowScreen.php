@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Job;
 
 use App\Models\Job;
-use App\Orchid\Helpers\Layouts\ModelLegendLayout;
-use App\Orchid\Helpers\Screen\ModelScreen;
-use App\Orchid\Helpers\Sight\CreatedAtSight;
-use App\Orchid\Helpers\Sight\IdSight;
-use App\Orchid\Helpers\Sight\PrintSight;
-use App\Orchid\Helpers\Sight\Sight;
-use App\Orchid\Helpers\Sight\TimestampSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelLegendLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\ModelScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\CreatedAtSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\IdSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\PrintSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\Sight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\TimestampSight;
 
 class JobShowScreen extends ModelScreen
 {

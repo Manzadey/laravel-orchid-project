@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Role;
 
 use App\Models\Role;
-use App\Orchid\Helpers\Layouts\ModelLegendLayout;
-use App\Orchid\Helpers\Layouts\ModelMetricLayout;
-use App\Orchid\Helpers\Layouts\ModelTimestampsLayout;
-use App\Orchid\Helpers\Link\DeleteLink;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\DropdownRelations;
-use App\Orchid\Helpers\Link\EditLink;
 use App\Orchid\Helpers\Link\Model\ActivityLogLink;
 use App\Orchid\Helpers\Link\Model\UserLink;
-use App\Orchid\Helpers\Screen\ModelScreen;
-use App\Orchid\Helpers\Sight\PrintSight;
-use App\Orchid\Helpers\Sight\Sight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelLegendLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelMetricLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelTimestampsLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DeleteLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownRelations;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\EditLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\ModelScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\PrintSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\Sight;
 
 /**
  * @property Role $model

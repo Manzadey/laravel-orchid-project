@@ -5,26 +5,26 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Role;
 
 use App\Models\Role;
-use App\Orchid\Helpers\Layouts\ModelsTableLayout;
-use App\Orchid\Helpers\Link\CreateLink;
-use App\Orchid\Helpers\Link\DeleteLink;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\EditLink;
-use App\Orchid\Helpers\Link\ShowLink;
-use App\Orchid\Helpers\Screen\AbstractListScreen;
 use App\Orchid\Helpers\Screen\DestroyAction;
-use App\Orchid\Helpers\TD\ActionsTD;
-use App\Orchid\Helpers\TD\CountTD;
-use App\Orchid\Helpers\TD\CreatedAtTD;
-use App\Orchid\Helpers\TD\IdTD;
-use App\Orchid\Helpers\TD\NameTD;
-use App\Orchid\Helpers\TD\UpdateAtTD;
 use JetBrains\PhpStorm\ArrayShape;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\CreateLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DeleteLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\EditLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CountTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\NameTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\UpdateAtTD;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\TD;
 
-class RoleListScreen extends AbstractListScreen
+class RoleListScreen extends AbstractScreen
 {
     use DestroyAction;
 

@@ -7,25 +7,24 @@ namespace App\Orchid\Screens\HttpLog;
 use App\Models\HttpLog;
 use App\Orchid\Filters\CreatedTimestampFilter;
 use App\Orchid\Filters\UserFilter;
-use App\Orchid\Helpers\Layouts\ModelsTableLayout;
-use App\Orchid\Helpers\Link\DropdownOptions;
-use App\Orchid\Helpers\Link\ShowLink;
-use App\Orchid\Helpers\Screen\AbstractListScreen;
-use App\Orchid\Helpers\TD\ActionsTD;
-use App\Orchid\Helpers\TD\CreatedAtTD;
-use App\Orchid\Helpers\TD\EntityRelationTD;
-use App\Orchid\Helpers\TD\IdTD;
 use App\Orchid\Layouts\HttpLogChart;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\EntityRelationTD;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Layouts\Selection;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use stdClass;
 
-class HttpLogListScreen extends AbstractListScreen
+class HttpLogListScreen extends AbstractScreen
 {
     /**
      * Query data.

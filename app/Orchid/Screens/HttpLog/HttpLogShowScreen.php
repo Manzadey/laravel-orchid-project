@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\HttpLog;
 
 use App\Models\HttpLog;
-use App\Orchid\Helpers\Layouts\ModelLegendLayout;
-use App\Orchid\Helpers\Layouts\ModelTimestampsLayout;
-use App\Orchid\Helpers\Screen\ModelScreen;
-use App\Orchid\Helpers\Sight\EntitySight;
-use App\Orchid\Helpers\Sight\IdSight;
-use App\Orchid\Helpers\Sight\PrintSight;
-use App\Orchid\Helpers\Sight\Sight;
-use App\Orchid\Helpers\Sight\TimestampSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelLegendLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelTimestampsLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\ModelScreen;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\EntitySight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\IdSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\PrintSight;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\Sight;
 
 class HttpLogShowScreen extends ModelScreen
 {

@@ -11,6 +11,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "manzadey/laravel-orchid-helpers": "^0.1.0",
         "orchid/platform": "^13.1",
         "sentry/sentry-laravel": "^2.13",
         "spatie/laravel-activitylog": "^4.5"
