@@ -2,6 +2,13 @@
 <p align="center"><a href="https://orchid.software/"><img src="https://orchid.software/img/logo-laravel-style.svg" alt="Laravel Orchid" height="48"></a></p>
 <p align="center">
 
+## Installing
+
+After you have installed PHP and Composer, you may create a new Laravel Orchid project via the Composer create-project command:
+```shell
+$ composer create-project manzadey/laravel-orchid laravel-orchid-example
+```
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
