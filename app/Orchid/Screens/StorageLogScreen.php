@@ -71,7 +71,7 @@ class StorageLogScreen extends AbstractScreen
                     ->rows(50)
                     ->class('form-control no-resize')
                     ->style('max-width:100%'),
-            ]),
+            ])->canSee(request()?->has('log')),
         ];
     }
 
