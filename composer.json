@@ -14,6 +14,7 @@
         "manzadey/laravel-orchid-activity-log": "^0.1.1",
         "manzadey/laravel-orchid-helpers": "^0.4.1",
         "manzadey/laravel-orchid-http-logs": "^0.1.1",
+        "manzadey/laravel-orchid-storage-logs": "^0.1.2",
         "orchid/platform": "^13.1",
         "sentry/sentry-laravel": "^2.13"
     },

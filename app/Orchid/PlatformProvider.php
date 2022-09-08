@@ -6,6 +6,7 @@ namespace App\Orchid;
 
 use App\Orchid\Services\PlatformPermissionService;
 use Illuminate\Support\Collection;
+use Manzadey\LaravelOrchidStorageLog\Orchid\Actions\Menu\StorageLogsMenu;
 use Manzadey\OrchidActivityLog\Orchid\Actions\Menu\ActivityMenu;
 use Manzadey\OrchidHttpLog\Orchid\Actions\Menu\HttpLogMenu;
 use Orchid\Attachment\Models\Attachment as BaseModel;
@@ -60,9 +61,7 @@ class PlatformProvider extends OrchidServiceProvider
             ], __('Доступы')),
 
             ...$this->groupedMenuItems([
-                Menu::make(__('Системные логи'))
-                    ->icon('book-open')
-                    ->route('platform.storage-logs')
+                StorageLogsMenu::make()
                     ->can('storage-logs-list'),
 
                 ActivityMenu::make(),

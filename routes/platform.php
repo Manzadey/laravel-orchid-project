@@ -45,6 +45,6 @@ Route::middleware(HttpLogMiddleware::class)
             ->name('storage-logs')
             ->breadcrumbs(static fn(Trail $trail) : Trail => $trail
                 ->parent('platform.index')
-                ->push(__('Логи'), route('platform.storage-logs'))
+                ->push(__('Системные логи'), route('platform.storage-logs'))
             );
     });

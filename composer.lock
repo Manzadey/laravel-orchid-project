@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3e8d6a10010c677a1d19ce9a0b17ee1",
+    "content-hash": "a5a015ad4e37bdcc7e64ef92840ba34e",
     "packages": [
         {
             "name": "brick/math",
@@ -2470,21 +2470,21 @@
         },
         {
             "name": "manzadey/laravel-orchid-activity-log",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Manzadey/laravel-orchid-activity-log.git",
-                "reference": "90e793b4ae0ba2228bf95348e73c7af8bffce9c9"
+                "reference": "b8cfe0bf31f0ab513c1a2ede4433db4660135ea0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Manzadey/laravel-orchid-activity-log/zipball/90e793b4ae0ba2228bf95348e73c7af8bffce9c9",
-                "reference": "90e793b4ae0ba2228bf95348e73c7af8bffce9c9",
+                "url": "https://api.github.com/repos/Manzadey/laravel-orchid-activity-log/zipball/b8cfe0bf31f0ab513c1a2ede4433db4660135ea0",
+                "reference": "b8cfe0bf31f0ab513c1a2ede4433db4660135ea0",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "manzadey/laravel-orchid-helpers": "^0.4.0",
+                "manzadey/laravel-orchid-helpers": "^0.4.1",
                 "php": "^8.1",
                 "spatie/laravel-activitylog": "^4.5"
             },
@@ -2520,7 +2520,7 @@
             "description": "Laravel Orchid Activity Log Wrapper",
             "support": {
                 "issues": "https://github.com/Manzadey/laravel-orchid-activity-log/issues",
-                "source": "https://github.com/Manzadey/laravel-orchid-activity-log/tree/v0.1.0"
+                "source": "https://github.com/Manzadey/laravel-orchid-activity-log/tree/v0.1.1"
             },
             "funding": [
                 {
@@ -2528,7 +2528,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-09-08T17:56:26+00:00"
+            "time": "2022-09-08T22:59:52+00:00"
         },
         {
             "name": "manzadey/laravel-orchid-helpers",
@@ -2659,6 +2659,65 @@
                 }
             ],
             "time": "2022-09-08T21:48:19+00:00"
+        },
+        {
+            "name": "manzadey/laravel-orchid-storage-logs",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Manzadey/laravel-orchid-storage-logs.git",
+                "reference": "a2f7168ec34da43a7c113dc3c20ac450551eb937"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Manzadey/laravel-orchid-storage-logs/zipball/a2f7168ec34da43a7c113dc3c20ac450551eb937",
+                "reference": "a2f7168ec34da43a7c113dc3c20ac450551eb937",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "orchid/platform": "^13.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Manzadey\\LaravelOrchidStorageLog\\Providers\\FoundationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Manzadey\\LaravelOrchidStorageLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Manzadey",
+                    "email": "andrey.manzadey@gmail.com",
+                    "homepage": "https://manzaday.ru",
+                    "role": "Developer"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/Manzadey/laravel-orchid-storage-logs/issues",
+                "source": "https://github.com/Manzadey/laravel-orchid-storage-logs/tree/v0.1.2"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/orchid",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-09-08T23:46:41+00:00"
         },
         {
             "name": "monolog/monolog",
