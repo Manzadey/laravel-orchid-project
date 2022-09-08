@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a72aeefcc046be65d7b765334640b4b",
+    "content-hash": "18db7a8f50149b8199063070dd58d20a",
     "packages": [
         {
             "name": "brick/math",
@@ -2008,16 +2008,16 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "d78fd36ba031a1a695ea5a406f29996948d7011b"
+                "reference": "47afb7fae28ed29057fdca37e16a84f90cc62fae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/d78fd36ba031a1a695ea5a406f29996948d7011b",
-                "reference": "d78fd36ba031a1a695ea5a406f29996948d7011b",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/47afb7fae28ed29057fdca37e16a84f90cc62fae",
+                "reference": "47afb7fae28ed29057fdca37e16a84f90cc62fae",
                 "shasum": ""
             },
             "require": {
@@ -2064,7 +2064,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2022-08-26T15:25:27+00:00"
+            "time": "2022-09-08T13:45:54+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2469,30 +2469,95 @@
             "time": "2022-04-17T13:12:02+00:00"
         },
         {
-            "name": "manzadey/laravel-orchid-helpers",
+            "name": "manzadey/laravel-orchid-activity-log",
             "version": "v0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Manzadey/laravel-orchid-helpers.git",
-                "reference": "65818f8c517ec682bf732f1b3a07b8ac03fc0df0"
+                "url": "https://github.com/Manzadey/laravel-orchid-activity-log.git",
+                "reference": "90e793b4ae0ba2228bf95348e73c7af8bffce9c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Manzadey/laravel-orchid-helpers/zipball/65818f8c517ec682bf732f1b3a07b8ac03fc0df0",
-                "reference": "65818f8c517ec682bf732f1b3a07b8ac03fc0df0",
+                "url": "https://api.github.com/repos/Manzadey/laravel-orchid-activity-log/zipball/90e793b4ae0ba2228bf95348e73c7af8bffce9c9",
+                "reference": "90e793b4ae0ba2228bf95348e73c7af8bffce9c9",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "laravel/framework": "^9.21",
-                "orchid/platform": "^13.1",
-                "php": "^8.1"
+                "manzadey/laravel-orchid-helpers": "^0.4.0",
+                "php": "^8.1",
+                "spatie/laravel-activitylog": "^4.5"
             },
-            "type": "library",
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "package",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Manzadey\\LaravelOrchidHelpers\\Providers\\FoundationServiceProvider"
+                        "Manzadey\\OrchidActivityLog\\Providers\\FoundationServiceProvider",
+                        "Manzadey\\OrchidActivityLog\\Providers\\PlatformServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Manzadey\\OrchidActivityLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Manzadey",
+                    "email": "andrey.manzadey@gmail.com",
+                    "homepage": "https://manzaday.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Orchid Activity Log Wrapper",
+            "support": {
+                "issues": "https://github.com/Manzadey/laravel-orchid-activity-log/issues",
+                "source": "https://github.com/Manzadey/laravel-orchid-activity-log/tree/v0.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/orchid",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-09-08T17:56:26+00:00"
+        },
+        {
+            "name": "manzadey/laravel-orchid-helpers",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Manzadey/laravel-orchid-helpers.git",
+                "reference": "343365f3e63394509b5187b2394094a8f07e0e72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Manzadey/laravel-orchid-helpers/zipball/343365f3e63394509b5187b2394094a8f07e0e72",
+                "reference": "343365f3e63394509b5187b2394094a8f07e0e72",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "orchid/platform": "^13.1",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Manzadey\\LaravelOrchidHelpers\\Providers\\FoundationServiceProvider",
+                        "Manzadey\\LaravelOrchidHelpers\\Providers\\MacrosServiceProvider"
                     ]
                 }
             },
@@ -2518,7 +2583,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Manzadey/laravel-orchid-helpers/issues",
-                "source": "https://github.com/Manzadey/laravel-orchid-helpers/tree/v0.1.0"
+                "source": "https://github.com/Manzadey/laravel-orchid-helpers/tree/v0.4.0"
             },
             "funding": [
                 {
@@ -2526,7 +2591,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-09-07T15:45:37+00:00"
+            "time": "2022-09-08T16:55:02+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4896,16 +4961,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.13.3",
+            "version": "1.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "e51b8105f068b162968581b5106b550e0bb81b15"
+                "reference": "163ee3bc6c0a987535d8a99722a7dbcc5471a140"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/e51b8105f068b162968581b5106b550e0bb81b15",
-                "reference": "e51b8105f068b162968581b5106b550e0bb81b15",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/163ee3bc6c0a987535d8a99722a7dbcc5471a140",
+                "reference": "163ee3bc6c0a987535d8a99722a7dbcc5471a140",
                 "shasum": ""
             },
             "require": {
@@ -4943,7 +5008,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.13.3"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.13.5"
             },
             "funding": [
                 {
@@ -4951,7 +5016,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-07T10:38:54+00:00"
+            "time": "2022-09-07T14:31:31+00:00"
         },
         {
             "name": "symfony/console",
@@ -9064,16 +9129,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "c10a5f6e06fc2470ab1822fa13fa2a7380f8fbac"
+                "reference": "e92dcc83d5a51851baf5f5591d32cb2b16e3684e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/c10a5f6e06fc2470ab1822fa13fa2a7380f8fbac",
-                "reference": "c10a5f6e06fc2470ab1822fa13fa2a7380f8fbac",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/e92dcc83d5a51851baf5f5591d32cb2b16e3684e",
+                "reference": "e92dcc83d5a51851baf5f5591d32cb2b16e3684e",
                 "shasum": ""
             },
             "require": {
@@ -9130,9 +9195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mockery/mockery/issues",
-                "source": "https://github.com/mockery/mockery/tree/1.5.0"
+                "source": "https://github.com/mockery/mockery/tree/1.5.1"
             },
-            "time": "2022-01-20T13:18:17+00:00"
+            "time": "2022-09-07T15:32:08+00:00"
         },
         {
             "name": "myclabs/deep-copy",

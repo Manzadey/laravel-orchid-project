@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Role;
 
 use App\Models\Role;
-use App\Orchid\Screens\ActivityLog\AbstractActivityLogListScreen;
+use App\Orchid\Screens\Activity\AbstractActivityListScreen;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use JetBrains\PhpStorm\ArrayShape;
 
-class RoleActivityLogListScreen extends AbstractActivityLogListScreen
+class RoleActivityLogListScreen extends AbstractActivityListScreen
 {
     /**
      * @throws \Illuminate\Auth\Access\AuthorizationException

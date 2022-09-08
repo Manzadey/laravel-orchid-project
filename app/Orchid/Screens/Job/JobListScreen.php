@@ -52,7 +52,7 @@ class JobListScreen extends AbstractScreen
                 TimestampTD::make('available_at', attrName('Доступно')),
                 CreatedAtTD::make(),
                 ActionsTD::make(static fn(Job $job) : DropDown => DropdownOptions::make()->list([
-                    ShowLink::makeFromModel($job, 'platform.jobs.show'),
+                    ShowLink::route('platform.jobs.show', $job),
                 ])),
             ]),
         ];

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens;
 
-use App\Orchid\Helpers\Screen\Screen;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Select;
@@ -15,7 +15,7 @@ use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Storage;
 
-class StorageLogScreen extends Screen
+class StorageLogScreen extends AbstractScreen
 {
     private array $logs = [];
 

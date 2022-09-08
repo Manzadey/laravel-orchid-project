@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Screens\ActivityLog;
+namespace App\Orchid\Screens\Activity;
 
-use App\Models\ActivityLog;
-use App\View\Components\Platform\ActivityLog\ActivityLogPropertiesComponent;
+use App\Models\Activity;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use JetBrains\PhpStorm\ArrayShape;
@@ -17,6 +16,7 @@ use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\IdSight;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\EntityRelationTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
+use Manzadey\OrchidActivityLog\View\Components\Platform\Activity\PropertiesComponent;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Sight;
@@ -25,9 +25,9 @@ use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 
 /**
- * @property ActivityLog $model
+ * @property Activity $model
  */
-class ActivityLogShowScreen extends ModelScreen
+class ActivityShowScreen extends ModelScreen
 {
     private bool $isSeeRelatedLayout = false;
 
@@ -38,18 +38,18 @@ class ActivityLogShowScreen extends ModelScreen
      * @return array
      */
     #[ArrayShape([0 => 'iterable', 'related' => 'mixed'])]
-    public function query(ActivityLog $activityLog) : iterable
+    public function query(Activity $activity) : iterable
     {
-        $this->authorizeShow($activityLog);
+        $this->authorizeShow($activity);
 
-        $related = $activityLog->newQuery()
+        $related = $activity->newQuery()
             ->with('causer')
             ->where(static fn(Builder $builder) : Builder => $builder
-                ->where('subject_type', $activityLog->subject_type)
-                ->where('subject_id', $activityLog->subject_id)
+                ->where('subject_type', $activity->subject_type)
+                ->where('subject_id', $activity->subject_id)
             )
-            ->when($activityLog->batch_uuid !== null, static fn(Builder $builder) : Builder => $builder
-                ->orWhere('batch_uuid', $activityLog->batch_uuid)
+            ->when($activity->batch_uuid !== null, static fn(Builder $builder) : Builder => $builder
+                ->orWhere('batch_uuid', $activity->batch_uuid)
             )
             ->latest('id')
             ->get([
@@ -59,7 +59,7 @@ class ActivityLogShowScreen extends ModelScreen
         $this->isSeeRelatedLayout = $related->count() > 1;
 
         return [
-            ...$this->model($activityLog),
+            ...$this->model($activity),
             'related' => $related,
         ];
     }
@@ -80,26 +80,26 @@ class ActivityLogShowScreen extends ModelScreen
     /**
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function revert(ActivityLog $activityLog) : RedirectResponse
+    public function revert(Activity $activity) : RedirectResponse
     {
-        $this->authorize('edit', $activityLog);
+        $this->authorize('edit', $activity);
 
-        $activityLog
+        $activity
             ->subject
-            ->fill($activityLog->properties->get('old'))
+            ->fill($activity->properties->get('old'))
             ->save();
 
-        if($activityLog->subject->wasChanged()) {
-            $activityLog = $activityLog
+        if($activity->subject->wasChanged()) {
+            $activity = $activity
                 ->subject
                 ->activities()
-                ->where('subject_type', $activityLog->subject_type)
-                ->where('subject_id', $activityLog->subject_id)
+                ->where('subject_type', $activity->subject_type)
+                ->where('subject_id', $activity->subject_id)
                 ->latest('id')
                 ->first();
         }
 
-        return to_route('platform.systems.activity-logs.show', $activityLog);
+        return to_route('platform.activities.show', $activity);
     }
 
     /**
@@ -145,7 +145,7 @@ class ActivityLogShowScreen extends ModelScreen
                     $sights = collect($this->model->properties->get($status))
                         ->keys()
                         ->map(static fn(string $field) : Sight => Sight::make($field, attrName($field))
-                            ->component(ActivityLogPropertiesComponent::class, compact('field'))
+                            ->component(PropertiesComponent::class, compact('field'))
                         )
                         ->toArray();
 
@@ -167,9 +167,9 @@ class ActivityLogShowScreen extends ModelScreen
                     Layout::table('related', [
                         IdTD::make()
                             ->defaultHidden(false)
-                            ->render(static fn(ActivityLog $activityLog) : Link => Link::make((string) $activityLog->id)
-                                ->route('platform.activity-logs.show', $activityLog)
-                                ->when($id === $activityLog->id, static fn(Link $link) : Link => $link->type(Color::SUCCESS()))
+                            ->render(static fn(Activity $activity) : Link => Link::make((string) $activity->id)
+                                ->route('platform.activities.show', $activity)
+                                ->when($id === $activity->id, static fn(Link $link) : Link => $link->type(Color::SUCCESS()))
                             ),
                         TD::make('event', __('Событие')),
                         EntityRelationTD::make('causer', __('Пользователь')),

@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Screens\ActivityLog;
+namespace App\Orchid\Screens\Activity;
 
-use App\Models\ActivityLog;
-use App\Orchid\Filters\CreatedTimestampFilter;
-use App\Orchid\Filters\IdFilter;
-use App\Orchid\Filters\UserFilter;
-use App\View\Components\Platform\ActivityLog\ActivityLogEventComponent;
+use App\Models\Activity;
 use Illuminate\Database\Eloquent\Builder;
+use Manzadey\LaravelOrchidHelpers\Orchid\Filters\CreatedTimestampFilter;
+use Manzadey\LaravelOrchidHelpers\Orchid\Filters\IdFilter;
+use Manzadey\LaravelOrchidHelpers\Orchid\Filters\UserFilter;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
@@ -18,12 +17,13 @@ use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\EntityRelationTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
+use Manzadey\OrchidActivityLog\View\Components\Platform\Activity\EventComponent;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Layouts\Selection;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 
-abstract class AbstractActivityLogListScreen extends AbstractScreen
+abstract class AbstractActivityListScreen extends AbstractScreen
 {
     protected array $hiddenColumns = [];
 
@@ -32,7 +32,7 @@ abstract class AbstractActivityLogListScreen extends AbstractScreen
      */
     public function layout() : iterable
     {
-        $this->authorizeList(ActivityLog::class);
+        $this->authorizeList(Activity::class);
 
         return [
             $this->selection(),
@@ -48,31 +48,26 @@ abstract class AbstractActivityLogListScreen extends AbstractScreen
                     ->defaultHidden(),
                 TD::make('event', __('Событие'))
                     ->filter(TD::FILTER_SELECT)
-                    ->filterOptions([
-                        'created' => 'Добавлено',
-                        'deleted' => 'Удалено',
-                        'updated' => 'Обновлено',
-                    ])
-                    ->component(ActivityLogEventComponent::class),
+                    ->filterOptions(Activity::EVENTS)
+                    ->component(EventComponent::class),
                 EntityRelationTD::make('causer', __('Пользователь')),
                 TD::make('subject_type', __('Тип объекта'))
-                    ->render(static fn(ActivityLog $activityLog) : string => __(class_basename($activityLog->subject_type)))
+                    ->render(static fn(Activity $activity) : string => __(class_basename($activity->subject_type)))
                     ->sort()
                     ->canSee($this->isHidden('subject_type')),
                 EntityRelationTD::make('subject', __('Сущность'))
                     ->canSee($this->isHidden('subject')),
                 CreatedAtTD::make(),
-                ActionsTD::make(static fn(ActivityLog $activityLog) : DropDown => DropdownOptions::make()->list([
-                    ShowLink::make()
-                        ->route('platform.activity-logs.show', $activityLog),
+                ActionsTD::make(static fn(Activity $activity) : DropDown => DropdownOptions::make()->list([
+                    ShowLink::route('platform.activities.show', $activity),
                 ])),
             ]),
         ];
     }
 
-    public function getBuilder(ActivityLog|Builder $builder = null) : Builder
+    public function getBuilder(Activity|Builder $builder = null) : Builder
     {
-        return ($builder ?? ActivityLog::query())
+        return ($builder ?? Activity::query())
             ->filters()
             ->filtersApplySelection($this->selection())
             ->with(['causer', 'subject'])

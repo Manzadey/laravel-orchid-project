@@ -26,9 +26,9 @@ Route::name('platform.')->group(static function() {
         ->name('roles.')
         ->group(base_path('routes/platform/roles.php'));
 
-    Route::prefix('activity-logs')
-        ->name('activity-logs.')
-        ->group(base_path('routes/platform/activity-logs.php'));
+    Route::prefix('activities')
+        ->name('activities.')
+        ->group(base_path('routes/platform/activities.php'));
 
     Route::prefix('http-logs')
         ->name('http-logs.')

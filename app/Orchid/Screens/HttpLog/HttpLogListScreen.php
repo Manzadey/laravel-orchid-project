@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
+use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\AbstractScreen;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
@@ -74,7 +75,7 @@ class HttpLogListScreen extends AbstractScreen
                 TD::make('ip'),
                 CreatedAtTD::make(),
                 ActionsTD::make(static fn(HttpLog $httpLog) : DropDown => DropdownOptions::make()->list([
-                    ShowLink::makeFromModel($httpLog, 'platform.http-logs.show'),
+                    ShowLink::route('platform.http-logs.show', $httpLog),
                 ])),
             ]),
         ];

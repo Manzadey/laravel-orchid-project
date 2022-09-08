@@ -61,7 +61,7 @@ class UserShowScreen extends ModelScreen
     {
         return [
             DropdownOptions::make()->list([
-                EditLink::makeFromModel($this->model, 'platform.users.edit'),
+                EditLink::route('platform.users.edit', $this->model),
                 DeleteLink::makeFromModel($this->model),
             ]),
         ];

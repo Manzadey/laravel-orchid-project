@@ -6,6 +6,7 @@ namespace App\Orchid;
 
 use App\Orchid\Services\PlatformPermissionService;
 use Illuminate\Support\Collection;
+use Manzadey\OrchidActivityLog\Orchid\Actions\Menu\ActivityMenu;
 use Orchid\Attachment\Models\Attachment as BaseModel;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
@@ -63,10 +64,7 @@ class PlatformProvider extends OrchidServiceProvider
                     ->route('platform.storage-logs')
                     ->can('storage-logs-list'),
 
-                Menu::make(__('model.activities'))
-                    ->icon('feed')
-                    ->route('platform.activity-logs.list')
-                    ->can('list', Models\ActivityLog::class),
+                ActivityMenu::make(),
 
                 Menu::make(__('model.http-logs'))
                     ->icon('cs.http')
@@ -102,7 +100,6 @@ class PlatformProvider extends OrchidServiceProvider
         $models = [
             Models\User::class,
             Models\Role::class,
-            Models\ActivityLog::class,
             Models\HttpLog::class,
             Models\Job::class,
         ];

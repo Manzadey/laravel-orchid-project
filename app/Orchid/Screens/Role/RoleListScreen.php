@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Role;
 
 use App\Models\Role;
-use App\Orchid\Helpers\Screen\DestroyAction;
 use JetBrains\PhpStorm\ArrayShape;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\CreateLink;
@@ -26,8 +25,6 @@ use Orchid\Screen\TD;
 
 class RoleListScreen extends AbstractScreen
 {
-    use DestroyAction;
-
     /**
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
@@ -70,8 +67,8 @@ class RoleListScreen extends AbstractScreen
                 UpdateAtTD::make(),
                 CreatedAtTD::make(),
                 ActionsTD::make(static fn(Role $role) : DropDown => DropdownOptions::make()->list([
-                    ShowLink::makeFromModel($role, 'platform.roles.show'),
-                    EditLink::makeFromModel($role, 'platform.roles.edit'),
+                    ShowLink::route('platform.roles.show', $role),
+                    EditLink::route('platform.roles.edit', $role),
                     DeleteLink::makeFromModel($role),
                 ])),
             ]),

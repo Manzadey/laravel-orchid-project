@@ -58,7 +58,7 @@ class RoleShowScreen extends ModelScreen
             ]),
 
             DropdownOptions::make()->list([
-                EditLink::makeFromModel($this->model, 'platform.roles.edit'),
+                EditLink::route( 'platform.roles.edit', $this->model),
                 DeleteLink::makeFromModel($this->model),
             ]),
         ];
