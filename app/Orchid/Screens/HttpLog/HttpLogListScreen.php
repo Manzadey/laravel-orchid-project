@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\HttpLog;
 
-use App\Models\HttpLog;
-use App\Orchid\Filters\CreatedTimestampFilter;
-use App\Orchid\Filters\UserFilter;
-use App\Orchid\Layouts\HttpLogChart;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
+use Manzadey\LaravelOrchidHelpers\Orchid\Filters\CreatedTimestampFilter;
+use Manzadey\LaravelOrchidHelpers\Orchid\Filters\UserFilter;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelsTableLayout;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\DropdownOptions;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Links\ShowLink;
@@ -19,9 +17,13 @@ use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\ActionsTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\CreatedAtTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\EntityRelationTD;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\TD\IdTD;
+use Manzadey\OrchidHttpLog\Models\HttpLog;
+use Manzadey\OrchidHttpLog\Orchid\Layouts\HttpLogChart;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Layouts\Selection;
 use Orchid\Screen\TD;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use stdClass;
 
@@ -47,6 +49,17 @@ class HttpLogListScreen extends AbstractScreen
             'charts' => [
                 $this->generateChartData(),
             ],
+        ];
+    }
+
+    public function commandBar() : iterable
+    {
+        return [
+            Button::make(__('Удалить все'))
+                ->icon('trash')
+                ->type(Color::DANGER())
+                ->method('deleteAll')
+                ->confirm(__('Вы действительно хотите удалить все записи?')),
         ];
     }
 

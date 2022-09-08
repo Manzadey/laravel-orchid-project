@@ -12,10 +12,10 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "manzadey/laravel-orchid-activity-log": "^0.1.0",
-        "manzadey/laravel-orchid-helpers": "^0.4.0",
+        "manzadey/laravel-orchid-helpers": "^0.4.1",
+        "manzadey/laravel-orchid-http-logs": "^0.1.1",
         "orchid/platform": "^13.1",
-        "sentry/sentry-laravel": "^2.13",
-        "spatie/laravel-activitylog": "^4.5"
+        "sentry/sentry-laravel": "^2.13"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
@@ -68,8 +68,7 @@
     "extra": {
         "laravel": {
             "dont-discover": [
-                "barryvdh/laravel-ide-helper",
-                "dragon-code/laravel-http-logger"
+                "barryvdh/laravel-ide-helper"
             ]
         }
     },

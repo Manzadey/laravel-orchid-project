@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 use App\Orchid\Screens\HttpLog\HttpLogListScreen;
 use App\Orchid\Screens\HttpLog\HttpLogShowScreen;
-use DragonCode\LaravelHttpLogger\Models\HttpLog;
+use Illuminate\Support\Facades\Route;
+use Manzadey\OrchidHttpLog\Models\HttpLog;
+use Manzadey\OrchidHttpLog\Services\HttpLogService;
 use Tabuna\Breadcrumbs\Trail;
 
 Route::screen('', HttpLogListScreen::class)
     ->name('list')
     ->breadcrumbs(static fn(Trail $trail) : Trail => $trail
         ->parent('platform.index')
-        ->push(__('model.http-logs'), route('platform.http-logs.list'))
+        ->push(HttpLogService::NAME, route(HttpLogService::ROUTE_LIST))
     );
 
 Route::screen('{httpLog}', HttpLogShowScreen::class)
     ->name('show')
     ->breadcrumbs(static fn(Trail $trail, HttpLog $httpLog) : Trail => $trail
-        ->parent('platform.http-logs.list')
-        ->push($httpLog->path, route('platform.http-logs.show', $httpLog->name))
+        ->parent(HttpLogService::ROUTE_LIST)
+        ->push($httpLog->path, route(HttpLogService::ROUTE_SHOW, $httpLog->name))
     );

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\HttpLog;
 
-use App\Models\HttpLog;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelLegendLayout;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Layouts\ModelTimestampsLayout;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Screens\ModelScreen;
@@ -12,16 +11,20 @@ use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\EntitySight;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\IdSight;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\PrintSight;
 use Manzadey\LaravelOrchidHelpers\Orchid\Helpers\Sights\Sight;
+use Manzadey\OrchidHttpLog\Models\HttpLog;
 
 class HttpLogShowScreen extends ModelScreen
 {
     /**
      * Query data.
      *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      * @return array
      */
     public function query(HttpLog $httpLog): iterable
     {
+        $this->authorizeShow($httpLog);
+
         return $this->model($httpLog);
     }
 
