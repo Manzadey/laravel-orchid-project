@@ -1,0 +1,17 @@
+{
+  "resources/web/js/app.js": {
+    "file": "assets/app.d19b0f38.js",
+    "src": "resources/web/js/app.js",
+    "isEntry": true
+  },
+  "resources/platform/js/app.js": {
+    "file": "assets/app.d19b0f382.js",
+    "src": "resources/platform/js/app.js",
+    "isEntry": true
+  },
+  "resources/platform/css/platform.main.css": {
+    "file": "assets/platform.main.cf528c1f.css",
+    "src": "resources/platform/css/platform.main.css",
+    "isEntry": true
+  }
+}
